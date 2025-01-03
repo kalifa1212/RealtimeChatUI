@@ -1,0 +1,48 @@
+<body class="bgimage">
+  <div class="container col-md-6 ">
+    <div class="card justify-content-md-center" style="top: 30px;">
+      <div class="card-header text-center">
+        <h3>Inscription</h3>
+      </div>
+      <form class="row g-3 p-2" [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="nom" formControlName="nom">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Prenom</label>
+          <input type="text" class="form-control" id="prenom" formControlName="prenom">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" formControlName="email"> 
+          <span class="alert" style="color: rgb(241, 102, 102);" *ngIf="errorMessage">{{errorMessage}}
+          </span>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Pseudo</label>
+          <input type="text" class="form-control" id="identifiant" formControlName="identifiant">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Date de Naissance</label>
+          <input type="date" class="form-control" id="ndateDeNaissanceom" formControlName="dateDeNaissance">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              j'accepte les règles et Condittions
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>  

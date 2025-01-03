@@ -1,0 +1,91 @@
+<!-- <div class="container mat-elevation-z5">
+  <div class="maincontainer">
+
+  </div>
+</div> -->
+
+ <div class="Newcontainer row " style="--bs-gutter-x:0px">
+  <ng-container *ngIf="isMobile">
+  <div class="OnlineUserStyle row p-0 m-3">
+    <ng-container *ngFor="let user of webSocketService.listUser" >
+    <div class="col" style="width: 130px; border-right: 1px solid rgb(21, 221, 128);" *ngIf="user.id!=idUtilisateur" (click)="ReceiveId(user.id)" >
+      <div class="col-2 position-relative">
+        <span class="position-absolute p-2  border border-light rounded-circle onlinegreen "></span>
+        <img matListAvatar src="assets/img.jpg" class="imageCircle">
+      </div>
+      <div  matLine class="chatTitle ">
+        <span>{{user.nom}}</span> 
+        <span class="chatDate onlinegreen rounded-circle" style="color: white; width: 0px;"></span>
+      </div>
+    
+    </div>
+  </ng-container>
+  </div>
+</ng-container>
+  <div class="row">
+    <ng-container *ngIf="!isMobile">
+  <div class="chatList mat-elevation-z5">
+    <!-- <div style="margin: 16px;">
+      <mat-form-field>
+        <input matInput placeholder="Entrer votre message ...."style="width: 50px" >
+        <button mat-icon-button matSuffix >
+          <mat-icon aria-hidden="false" fontIcon="search"></mat-icon>
+        </button>
+      </mat-form-field>
+    </div> -->
+
+        <div class="row scrollable">
+          <ng-container *ngFor="let user of webSocketService.listUser">
+            
+          <div class="row mt-1" style=" max-height: 70px;" (click)="ReceiveId(user.id)" *ngIf="user.id!=idUtilisateur">
+            <div class="col-2 position-relative">
+              <span class="position-absolute p-2  border border-light rounded-circle onlinegreen "></span>
+              <img matListAvatar src="assets/img.jpg" class="imageCircle">
+            </div>
+            <div class="col ">
+                <p matLine class="chatTitle">
+                  <span class="chatName"> {{user.nom}} </span>
+                  <span class="chatDate" *ngIf="user.status==='OFFLINE'"> {{user.lastSeen |date:'d/M/yy, h:mm a' }}</span>
+                </p>
+                <p matLine class="chatTitle">
+                  <span class="chatName"> dernier message </span>
+                  <span *ngIf="webSocketService.senderId===user.id" class="chatDate onlinegreen rounded-circle" style="color: white"> new</span>
+                </p>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+        </ng-container>
+        </div>
+  </div>
+</ng-container>
+  <div class="messages mat-elevation-z5" [ngClass]="{'mobileView': isMobile==true,
+  'webView': isMobile==false,  }">
+    <div class="messages-header">
+      <img matListAvatar src="assets/img.jpg" style="border: burlywood solid !important;">
+      <h2>{{receiverUser.nom}}</h2>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="chat-area">
+      <ng-container>
+      <div class="chat-bubble-container" *ngFor="let conversation of webSocketService.ListConversation"
+      [ngClass]="{'sender':conversation.expediteurId!=receiverUser.id }">
+        <div class="chat-bubble">
+          {{conversation.contenu}}
+          <span class="chat-date">{{conversation.dateHeure |date:'d/M/yy, h:mm a' }}</span>
+        </div>
+      </div>
+        <div  #endOfChat></div>
+      </ng-container>
+    </div>
+    <div class="input-area">
+      <mat-form-field>
+        <input matInput placeholder="Entrer votre message ...." (keyup.enter)="InitMessage()" [(ngModel)]="ContenuMessage">
+        <button mat-icon-button matSuffix (click)="InitMessage()">
+          <mat-icon aria-hidden="false" fontIcon="send"></mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div></div>
+  </div>
+</div>
+</div> 

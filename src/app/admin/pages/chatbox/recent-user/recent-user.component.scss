@@ -1,0 +1,26 @@
+.recent-chats-container {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+.recent-chats-container h4 {
+  margin-bottom: 10px;
+}
+
+.recent-chats-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recent-chats-container li {
+  margin-bottom: 10px;
+}
+
+.chat-user {
+  font-weight: bold;
+}
+
+.chat-message {
+  color: #555;
+}

@@ -1,0 +1,9 @@
+<div class="recent-chats-container">
+  <h4>Recent Chats</h4>
+  <ul>
+    <li *ngFor="let chat of recentChats">
+      <div class="chat-user">{{ chat.user }}</div>
+      <div class="chat-message">{{ chat.message }}</div>
+    </li>
+  </ul>
+</div>

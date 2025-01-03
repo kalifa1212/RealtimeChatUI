@@ -1,0 +1,8 @@
+<div id="msgcontainer" style="" [ngClass]="{
+    'msgRecever': expediteur==true,
+    'msgSender': expediteur==false
+    }"
+  >
+ <p class="border"> message: {{Message?.contenu}}</p>
+  <span class="">date:  </span>
+</div>

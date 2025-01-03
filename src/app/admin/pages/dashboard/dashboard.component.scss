@@ -1,0 +1,64 @@
+.body-style{
+  background-image: url("../../../../assets/fond.avif");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: cover;
+}
+h1 {
+  padding: 0 1rem;
+}
+.toolbar-item-spacer{
+  flex:1 1 auto;
+}
+
+h2 {padding: 1rem;}
+
+mat-toolbar{
+  position:fixed;
+  top:0;
+  z-index: 2;
+}
+
+mat-sidenav-container {
+  height:100%;
+}
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav {
+  padding-top: 3.5rem;
+  @media screen and (min-width: 600px) {
+    padding-top: 4rem;
+  }
+
+  .entry{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding:0.75rem;
+  }
+}
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav-content{
+  padding-top: 3.5rem;
+  @media screen and (min-width: 600px) {
+    padding-top: 4rem;
+  }
+}
+
+
+//:host{
+//  display: flex;
+//  flex-direction: column;
+//  height: 100%;
+//}
+//mat-drawer{
+//  width: 230px;
+//}
+//mat-drawer-content{
+//  height: 100%;
+//}
+//.color{
+//  background-image: image("/src/assets/360.jpg");
+//}

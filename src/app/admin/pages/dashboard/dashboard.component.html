@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()" >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Reel Time Chat App </h1>
+    <span class="toolbar-item-spacer"></span>
+        <button mat-icon-button matTooltip="Mon Compte" [matMenuTriggerFor]="userAccountMenu"> <mat-icon>account_circle</mat-icon></button>
+    <mat-menu #userAccountMenu [overlapTrigger]="false" yposition="below">
+      <button mat-menu-item rooterLink="#">
+        <mat-icon>person</mat-icon>
+        <span>Mon compte</span>
+      </button>
+      <button mat-menu-item rooterLink="#">
+        <mat-icon>settings</mat-icon>
+        <span>Paramettre</span>
+      </button>
+      <button mat-menu-item rooterLink="#">
+        <mat-icon>help</mat-icon>
+        <span>Aide</span>
+      </button>
+      <button mat-menu-item (click)="deconnection()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Se deconnecter</span>
+      </button>
+    </mat-menu>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container autosize>
+  <mat-sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'" >
+    <mat-nav-list>
+       <a mat-list-item *ngIf="!isCollapsed"> <!--//we can remove it after -->
+         <span class="entry">
+            <mat-icon  aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+            <span *ngIf="!isCollapsed">Dashboard</span>
+         </span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="background-color: whitesmoke;">
+    <h2 style="color: rgb(15, 15, 15);"> Bienvenue {{ConnectedUser}} </h2>
+    <app-chat-box></app-chat-box>
+<!--    <app-chat-page [isMobile]="isMobile" (sendIdentifiant)="ReceiveIdentifiant($event)"></app-chat-page>-->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- <body class="body-style">
+  <app-chat-page></app-chat-page>
+</body> -->
+

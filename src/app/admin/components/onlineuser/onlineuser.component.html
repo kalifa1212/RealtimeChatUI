@@ -1,0 +1,15 @@
+<div class=" row onlineBorder" (click)="sendId(userDto.id)"  *ngIf="connectedUserId!=userDto.id">
+  <div class="col-3 ">
+    <div class="item">
+      <span class="position-absolute p-2  border border-light rounded-circle onlinegreen "></span>
+      <img src="assets/account.png"  alt="" width="50" height="50" />
+    </div>
+  </div>
+  <div class="col " >
+    <div>{{userDto.nom}}</div>
+    <div></div>
+  </div>
+  <div class="col-2 "  style="padding: 2px;">
+    <span *ngIf="senderId===userDto.id" class=" position-absolute p-2  border border-light rounded-circle newMessage "></span>
+  </div>
+</div>
